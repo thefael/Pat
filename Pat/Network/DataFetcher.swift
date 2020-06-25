@@ -2,10 +2,9 @@
 import Foundation
 
 protocol DataFetcherDelegate {
-    func didUpdateBreedList(_ breedList: [String])
+    func didUpdateBreedList(_ breedList: [Breed])
     func didFailWithError(_ error: Error)
 }
-
 
 class DataFetcher {
     
@@ -18,24 +17,28 @@ class DataFetcher {
             if let error = error {
                 print(error)
             } else if let data = data {
-                if let breedList = self.parseJSON(data: data) {
+                do {
+                    let breedList = try self.parseJSON(data: data)
                     self.delegate?.didUpdateBreedList(breedList)
+                    
+                } catch {
+                    self.delegate?.didFailWithError(error)
                 }
             }
         }
         dataTask.resume()
     }
     
-    func parseJSON(data: Data) -> [String]? {
+    func parseJSON(data: Data) throws -> [Breed] {
         
         let decoder = JSONDecoder()
-        var breedList = [String]()
-        do {
-            breedList = try decoder.decode(Array<String>.self, from: data)
-            return breedList
-        } catch {
-            delegate?.didFailWithError(error)
-            return nil
+        var breedList = [Breed]()
+        
+        let breedArray: [String] = try decoder.decode(Array<String>.self, from: data)
+        for name in breedArray {
+            let newBreed = Breed(name: name)
+            breedList.append(newBreed)
         }
+        return breedList
     }
 }

@@ -38,7 +38,7 @@ extension ViewController: UITableViewDataSource {
 
 //MARK: - DataFetcherDelegate
 extension ViewController: DataFetcherDelegate {
-    func didUpdateBreedList(_ breedList: [String]) {
+    func didUpdateBreedList(_ breedList: [Breed]) {
         print(breedList)
     }
     
