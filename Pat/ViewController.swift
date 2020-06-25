@@ -12,12 +12,17 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var dataFetcher = DataFetcher()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataFetcher.delegate = self
+        dataFetcher.fetchData()
         // Do any additional setup after loading the view.
     }
 }
 
+//MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Returns the number of rows in section. Retrieve this value from
@@ -31,5 +36,16 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-
+//MARK: - DataFetcherDelegate
+extension ViewController: DataFetcherDelegate {
+    func didUpdateBreedList(_ breedList: [String]) {
+        print(breedList)
+    }
+    
+    func didFailWithError(_ error: Error) {
+        print(error)
+    }
+    
+    
+}
 
