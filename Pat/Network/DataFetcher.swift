@@ -32,13 +32,9 @@ class DataFetcher {
     func parseJSON(data: Data) throws -> [Breed] {
         
         let decoder = JSONDecoder()
-        var breedList = [Breed]()
         
         let breedArray: [String] = try decoder.decode(Array<String>.self, from: data)
-        for name in breedArray {
-            let newBreed = Breed(name: name)
-            breedList.append(newBreed)
-        }
+        let breedList = breedArray.map { name in Breed(name: name) }
         return breedList
     }
 }

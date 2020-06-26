@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var dataFetcher = DataFetcher()
+    let dataFetcher = DataFetcher()
     
     override func viewDidLoad() {
         super.viewDidLoad()
