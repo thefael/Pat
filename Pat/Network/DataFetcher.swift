@@ -1,28 +1,20 @@
 
 import Foundation
 
-protocol DataFetcherDelegate {
-    func didUpdateBreedList(_ breedList: [Breed])
-    func didFailWithError(_ error: Error)
-}
-
 class DataFetcher {
     
-    var delegate: DataFetcherDelegate?
     let urlSession = URLSession.shared
     
-    func fetchData() {
-        
+    func fetchData(_ completion: @escaping ([Breed]?, Error?) -> Void) {
         let dataTask = urlSession.dataTask(with: URL.baseURL) { (data, response, error) in
             if let error = error {
-                print(error)
+                completion(nil, error)
             } else if let data = data {
                 do {
                     let breedList = try self.parseJSON(data: data)
-                    self.delegate?.didUpdateBreedList(breedList)
-                    
+                    completion(breedList, nil)
                 } catch {
-                    self.delegate?.didFailWithError(error)
+                    print("Error in parsing JSON")
                 }
             }
         }

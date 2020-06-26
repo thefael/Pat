@@ -16,8 +16,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataFetcher.delegate = self
-        dataFetcher.fetchData()
+        dataFetcher.fetchData { (breedList, error) in
+            if let error = error {
+                print(error)
+            } else if let breedList = breedList {
+                print(breedList)
+            }
+        }
+        
         // Do any additional setup after loading the view.
     }
 }
@@ -35,17 +41,3 @@ extension ViewController: UITableViewDataSource {
         return UITableViewCell()
     }
 }
-
-//MARK: - DataFetcherDelegate
-extension ViewController: DataFetcherDelegate {
-    func didUpdateBreedList(_ breedList: [Breed]) {
-        print(breedList)
-    }
-    
-    func didFailWithError(_ error: Error) {
-        print(error)
-    }
-    
-    
-}
-
