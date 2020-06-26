@@ -14,7 +14,7 @@ class DataFetcher {
                     let breedList = try self.parseJSON(data: data)
                     completion(breedList, nil)
                 } catch {
-                    print("Error in parsing JSON")
+                    completion(nil, error)
                 }
             }
         }
