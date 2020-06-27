@@ -13,31 +13,39 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let dataFetcher = DataFetcher()
+    var breedList = [Breed]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        loadBreedList()
+    }
+    
+    func loadBreedList() {
         dataFetcher.fetchData { (breedList, error) in
             if let error = error {
-                print(error)
+                print("Error trying to fetch data. \(error)")
             } else if let breedList = breedList {
-                print(breedList)
+                self.breedList = breedList
             }
         }
-        
-        // Do any additional setup after loading the view.
     }
 }
 
-//MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Returns the number of rows in section. Retrieve this value from
-        // the API to know how many races of dogs there are.
-        return 1
+        return breedList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Returns a configured cell using data retrieved from the API.
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
+        cell.textLabel?.text = breedList[indexPath.item].name
+        return cell
     }
 }
