@@ -4,8 +4,8 @@ class DataFetcher {
     
     let urlSession = URLSession.shared
 
-    func fetchData<T: Decodable>(path: String, _ completion: @escaping (T?, Error?) -> Void) {
-        urlSession.dataTask(with: URL.URLWithPath(path: path)) { (data, _, error) in
+    func fetchData<T: Decodable>(path: URL, _ completion: @escaping (T?, Error?) -> Void) {
+        urlSession.dataTask(with: path) { (data, _, error) in
            if let error = error {
                completion(nil, error)
            } else if let data = data {

@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     }
     
     func loadBreedList() {
-        dataFetcher.fetchData(path: URL.breedPath) { (breedArray: [String]?, error) in
+        dataFetcher.fetchData(path: URL.breeds) { (breedArray: [String]?, error) in
             if let error = error {
                 print("Error trying to fetch data. \(error)")
             } else if let breedArray = breedArray {
