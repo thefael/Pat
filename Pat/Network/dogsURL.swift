@@ -1,11 +1,17 @@
 import Foundation
 
 extension URL {
-    private static let urlString = "https://hidden-crag-71735.herokuapp.com/api/breeds"
+    private static let urlString = "https://hidden-crag-71735.herokuapp.com/api/"
+    static let breedPath = "breeds"
     static let baseURL: URL = {
         guard let url = URL(string: urlString) else {
             fatalError("Invalid baseURL")
         }
         return url
     }()
+
+    static func URLWithPath(path string: String) -> URL {
+        let newURL = baseURL.appendingPathComponent(string)
+        return newURL
+    }
 }
