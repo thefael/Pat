@@ -28,10 +28,11 @@ class ViewController: UIViewController {
     }
     
     func loadBreedList() {
-        dataFetcher.fetchData(path: URL.breeds) { (breedArray: [String]?, error) in
-            if let error = error {
+        dataFetcher.fetchData(path: URL.breeds) { (result: Result<[String], Error>) in
+            switch result {
+            case .failure(let error):
                 print("Error trying to fetch data. \(error)")
-            } else if let breedArray = breedArray {
+            case .success(let breedArray):
                 self.breedList = breedArray.map { name in Breed(name: name) }
             }
         }
