@@ -10,7 +10,7 @@ extension URL {
         return url
     }()
 
-    static var breeds: URL = {
+    static var breeds: URL {
       baseURL.appendingPathComponent("breeds")
-    }()
+    }
 }
