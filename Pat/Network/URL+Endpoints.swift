@@ -11,6 +11,6 @@ extension URL {
     }()
 
     static var breeds: URL {
-      baseURL.appendingPathComponent("breeds")
+        baseURL.appendingPathComponent("breeds")
     }
 }
