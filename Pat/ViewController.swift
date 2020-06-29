@@ -28,11 +28,11 @@ class ViewController: UIViewController {
     }
     
     func loadBreedList() {
-        dataFetcher.fetchData { (breedList, error) in
+        dataFetcher.fetchData { (breedArray: [String]?, error) in
             if let error = error {
                 print("Error trying to fetch data. \(error)")
-            } else if let breedList = breedList {
-                self.breedList = breedList
+            } else if let breedArray = breedArray {
+                self.breedList = breedArray.map { name in Breed(name: name) }
             }
         }
     }
