@@ -41,12 +41,13 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return breedList.count
+        return ConfigureTableView.numberOfItemsIn(breedList)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
-        cell.textLabel?.text = breedList[indexPath.item].name
+        let item = ConfigureTableView.itemToPopulateCell(use: breedList, toPopulate: cell, at: indexPath)
+        cell.textLabel?.text = item.name
         return cell
     }
 }
