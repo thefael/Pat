@@ -13,17 +13,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let dataFetcher = DataFetcher()
+    let dataSource = ObjectDataSource<Breed, UITableViewCell>()
     var breedList = [Breed]() {
         didSet {
             DispatchQueue.main.async {
+                self.dataSource.genericList = self.breedList
                 self.tableView.reloadData()
             }
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
+        dataSource.configureCell = {(item, cell) in
+            cell.textLabel?.text = item.name
+        }
+        tableView.dataSource = dataSource
         loadBreedList()
     }
     
@@ -36,18 +40,5 @@ class ViewController: UIViewController {
                 self.breedList = breedArray.map { name in Breed(name: name) }
             }
         }
-    }
-}
-
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ConfigureTableView.numberOfItemsIn(breedList)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
-        let item = ConfigureTableView.itemToPopulateCell(use: breedList, toPopulate: cell, at: indexPath)
-        cell.textLabel?.text = item.name
-        return cell
     }
 }
