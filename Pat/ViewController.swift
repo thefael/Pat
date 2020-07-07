@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource.configureCell = {(item, cell) in
+        dataSource.configureCell = { item, cell in
             cell.textLabel?.text = item.name
         }
         tableView.dataSource = dataSource
