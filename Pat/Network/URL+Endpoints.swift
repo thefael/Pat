@@ -13,4 +13,11 @@ extension URL {
     static var breeds: URL {
         baseURL.appendingPathComponent("breeds")
     }
+
+    static func makeDogURL(with breed: String) -> URL {
+        let dogImageURL = baseURL
+            .appendingPathComponent(breed)
+            .appendingPathComponent("/images")
+        return dogImageURL
+    }
 }
