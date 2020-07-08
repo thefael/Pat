@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BreedListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
