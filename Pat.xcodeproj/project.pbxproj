@@ -18,6 +18,7 @@
 		A887FCCD24A53DB3008EE799 /* URL+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887FCCC24A53DB3008EE799 /* URL+Endpoints.swift */; };
 		A89148A924AAC8C600C2BE66 /* ObjectDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */; };
 		A898A17524B549A400BE8E2A /* DogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A898A17424B549A400BE8E2A /* DogsViewController.swift */; };
+		A8F42B7224B57D7A002E95D4 /* DogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F42B7124B57D7A002E95D4 /* DogImage.swift */; };
 		E5F0EEEFA8F5FE1804DCCAE6 /* Pods_Pat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297CC6A587290B40A81BBAEB /* Pods_Pat.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		A887FCCC24A53DB3008EE799 /* URL+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Endpoints.swift"; sourceTree = "<group>"; };
 		A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDataSource.swift; sourceTree = "<group>"; };
 		A898A17424B549A400BE8E2A /* DogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsViewController.swift; sourceTree = "<group>"; };
+		A8F42B7124B57D7A002E95D4 /* DogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				A85A6C5524A463CF00D12350 /* Breed.swift */,
+				A8F42B7124B57D7A002E95D4 /* DogImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				A887FCCD24A53DB3008EE799 /* URL+Endpoints.swift in Sources */,
 				A85A6C5624A463CF00D12350 /* Breed.swift in Sources */,
 				A85A6C3E24A454E800D12350 /* BreedListViewController.swift in Sources */,
+				A8F42B7224B57D7A002E95D4 /* DogImage.swift in Sources */,
 				A85A6C3A24A454E800D12350 /* AppDelegate.swift in Sources */,
 				A85A6C3C24A454E800D12350 /* SceneDelegate.swift in Sources */,
 				A85A6C5324A45F5A00D12350 /* DataFetcher.swift in Sources */,
