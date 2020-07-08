@@ -1,16 +1,11 @@
 //
-//  DogsViewController.swift
-//  Pat
-//
-//  Created by Rafael Rodrigues on 07/07/20.
-//  Copyright © 2020 Rafael Rodrigues. All rights reserved.
-//
-
 import UIKit
 
 class DogsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+
+    var breed = String()
 
     let dataFetcher = DataFetcher()
     let dataSource = ObjectDataSource<DogImage, UITableViewCell>()
@@ -30,7 +25,7 @@ class DogsViewController: UIViewController {
     }
 
     func loadDogList() {
-        dataFetcher.fetchData(path: URL.makeDogURL(with: "corgi")) { (result: Result<[String], Error>) in
+        dataFetcher.fetchData(path: URL.makeDogURL(with: breed)) { (result: Result<[String], Error>) in
             switch result {
             case .failure(let error):
                 print(error)

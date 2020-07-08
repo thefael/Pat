@@ -27,9 +27,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Zjb-Ck-b6u" kind="show" identifier="BreedListToDogs" id="amh-Sr-tKc"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -40,6 +37,7 @@
                     <navigationItem key="navigationItem" id="E3i-kP-avG"/>
                     <connections>
                         <outlet property="tableView" destination="MJa-fh-nfT" id="aFW-WY-HoT"/>
+                        <segue destination="Zjb-Ck-b6u" kind="show" identifier="BreedListToDogList" id="wpf-o3-ZOi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

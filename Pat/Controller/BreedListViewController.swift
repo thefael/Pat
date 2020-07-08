@@ -28,6 +28,7 @@ class BreedListViewController: UIViewController {
             cell.textLabel?.text = item.name
         }
         tableView.dataSource = dataSource
+        tableView.delegate = self
         loadBreedList()
     }
     
@@ -39,6 +40,18 @@ class BreedListViewController: UIViewController {
             case .success(let breedArray):
                 self.breedList = breedArray.map { name in Breed(name: name) }
             }
+        }
+    }
+}
+
+extension BreedListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "BreedListToDogList", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dogsVC = segue.destination as? DogsViewController {
+            dogsVC.breed = breedList[tableView.indexPathForSelectedRow!.row].name
         }
     }
 }
