@@ -20,6 +20,9 @@ class DogsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataSource.configureCell = { item, cell in
+            cell.imageView?.image = UIImage(data: item.dogImage!)
+        }
         tableView.dataSource = dataSource
         loadDogList()
     }
