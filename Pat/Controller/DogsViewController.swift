@@ -20,12 +20,21 @@ class DogsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTableViewDelegates()
+        configureTablewView()
+        loadDogList()
+    }
+
+    func configureTablewView() {
+        tableView.register(DogCell.self, forCellReuseIdentifier: "ReusableCell")
         dataSource.configureCell = { item, cell in
             cell.dogImageView.image = UIImage(data: item.dogImage!)
         }
+    }
+
+    func setTableViewDelegates() {
         tableView.dataSource = dataSource
-        tableView.register(DogCell.self, forCellReuseIdentifier: "DogCell")
-        loadDogList()
+        tableView.delegate = self
     }
 
     func loadDogList() {
@@ -39,5 +48,13 @@ class DogsViewController: UIViewController {
                 }
             }
         }
+    }
+}
+
+extension DogsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let currentImage =  UIImage(data: dogImageList[indexPath.row].dogImage!) ?? UIImage()
+        let imageCrop = currentImage.getCropRatio()
+        return tableView.frame.width / imageCrop
     }
 }
