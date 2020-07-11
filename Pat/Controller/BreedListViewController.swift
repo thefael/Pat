@@ -50,8 +50,9 @@ extension BreedListViewController: UITableViewDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dogsVC = segue.destination as? DogsViewController {
-            dogsVC.breed = breedList[tableView.indexPathForSelectedRow!.row].name
+        if let dogsVC = segue.destination as? DogsViewController,
+            let index = tableView.indexPathForSelectedRow?.row {
+            dogsVC.breed = breedList[index].name
         }
     }
 }
