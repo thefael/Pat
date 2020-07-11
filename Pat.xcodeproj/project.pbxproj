@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A849C72C24BA4C91000B3EB6 /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849C72B24BA4C91000B3EB6 /* DogCell.swift */; };
+		A849C72F24BA6230000B3EB6 /* UIImage+getCropRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849C72E24BA6230000B3EB6 /* UIImage+getCropRatio.swift */; };
 		A85A6C3A24A454E800D12350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C3924A454E800D12350 /* AppDelegate.swift */; };
 		A85A6C3C24A454E800D12350 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C3B24A454E800D12350 /* SceneDelegate.swift */; };
 		A85A6C3E24A454E800D12350 /* BreedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C3D24A454E800D12350 /* BreedListViewController.swift */; };
@@ -26,6 +28,8 @@
 		0CB4A218FC7224F25F155E1F /* Pods-Pat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pat.release.xcconfig"; path = "Target Support Files/Pods-Pat/Pods-Pat.release.xcconfig"; sourceTree = "<group>"; };
 		297CC6A587290B40A81BBAEB /* Pods_Pat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		658D737CAB8788C8A39027AC /* Pods-Pat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pat.debug.xcconfig"; path = "Target Support Files/Pods-Pat/Pods-Pat.debug.xcconfig"; sourceTree = "<group>"; };
+		A849C72B24BA4C91000B3EB6 /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
+		A849C72E24BA6230000B3EB6 /* UIImage+getCropRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+getCropRatio.swift"; sourceTree = "<group>"; };
 		A85A6C3624A454E800D12350 /* Pat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85A6C3924A454E800D12350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A85A6C3B24A454E800D12350 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A849C72D24BA53BE000B3EB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A85A6C3F24A454E800D12350 /* Main.storyboard */,
+				A849C72B24BA4C91000B3EB6 /* DogCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A85A6C2D24A454E800D12350 = {
 			isa = PBXGroup;
 			children = (
@@ -84,12 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				A898A17724B54AD400BE8E2A /* Application */,
-				A85A6C5424A463A300D12350 /* Model */,
 				A85A6C5124A45F4500D12350 /* Network */,
+				A85A6C5424A463A300D12350 /* Model */,
+				A849C72D24BA53BE000B3EB6 /* View */,
 				A898A17624B549F500BE8E2A /* Controller */,
-				A85A6C3F24A454E800D12350 /* Main.storyboard */,
-				A85A6C4424A454EE00D12350 /* LaunchScreen.storyboard */,
-				A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */,
 			);
 			path = Pat;
 			sourceTree = "<group>";
@@ -117,6 +128,8 @@
 			children = (
 				A85A6C3D24A454E800D12350 /* BreedListViewController.swift */,
 				A898A17424B549A400BE8E2A /* DogsViewController.swift */,
+				A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */,
+				A849C72E24BA6230000B3EB6 /* UIImage+getCropRatio.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -124,6 +137,7 @@
 		A898A17724B54AD400BE8E2A /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				A85A6C4424A454EE00D12350 /* LaunchScreen.storyboard */,
 				A85A6C4224A454EE00D12350 /* Assets.xcassets */,
 				A85A6C3924A454E800D12350 /* AppDelegate.swift */,
 				A85A6C3B24A454E800D12350 /* SceneDelegate.swift */,
@@ -264,7 +278,9 @@
 				A85A6C3A24A454E800D12350 /* AppDelegate.swift in Sources */,
 				A85A6C3C24A454E800D12350 /* SceneDelegate.swift in Sources */,
 				A85A6C5324A45F5A00D12350 /* DataFetcher.swift in Sources */,
+				A849C72C24BA4C91000B3EB6 /* DogCell.swift in Sources */,
 				A898A17524B549A400BE8E2A /* DogsViewController.swift in Sources */,
+				A849C72F24BA6230000B3EB6 /* UIImage+getCropRatio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

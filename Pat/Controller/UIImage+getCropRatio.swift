@@ -1,9 +1,8 @@
-//
-//  UIImage+getCropRatio.swift
-//  Pat
-//
-//  Created by Rafael Rodrigues on 11/07/20.
-//  Copyright © 2020 Rafael Rodrigues. All rights reserved.
-//
+import UIKit
 
-import Foundation
+extension UIImage {
+    func getCropRatio() -> CGFloat {
+        let widthRatio = CGFloat(self.size.width / self.size.height)
+        return widthRatio
+    }
+}
