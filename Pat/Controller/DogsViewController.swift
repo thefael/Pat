@@ -28,7 +28,8 @@ class DogsViewController: UIViewController {
     func configureTablewView() {
         tableView.register(DogCell.self, forCellReuseIdentifier: "ReusableCell")
         dataSource.configureCell = { item, cell in
-            cell.dogImageView.image = UIImage(data: item.dogImage!)
+            let dogImage = UIImage(data: item.dogImage!)
+            cell.dogImageView.image = dogImage
         }
     }
 

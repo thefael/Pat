@@ -6,7 +6,8 @@ class DogCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(dogImageView)
+        dogImageView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(dogImageView)
         configureImageView()
         setImageContstraints()
     }
@@ -21,7 +22,6 @@ class DogCell: UITableViewCell {
     }
 
     func setImageContstraints() {
-        translatesAutoresizingMaskIntoConstraints = false
         dogImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         dogImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         dogImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
