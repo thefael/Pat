@@ -8,11 +8,11 @@ class DogsViewController: UIViewController {
     var breed = String()
 
     let dataFetcher = DataFetcher()
-    let dataSource = ObjectDataSource<DogImage, DogCell>()
-    var dogImageList = [DogImage]() {
+    let dataSource = ObjectDataSource<URL, DogCell>()
+    var dogURLList = [URL]() {
         didSet {
             DispatchQueue.main.async {
-                self.dataSource.genericList = self.dogImageList
+                self.dataSource.genericList = self.dogURLList
                 self.tableView.reloadData()
             }
         }
@@ -20,33 +20,31 @@ class DogsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTableViewDelegates()
         configureTablewView()
         loadDogList()
+        self.configureCell()
     }
 
     func configureTablewView() {
         tableView.register(DogCell.self, forCellReuseIdentifier: "ReusableCell")
-        dataSource.configureCell = { item, cell in
-            let dogImage = UIImage(data: item.dogImage!)
-            cell.dogImageView.image = dogImage
-        }
-    }
-
-    func setTableViewDelegates() {
         tableView.dataSource = dataSource
         tableView.delegate = self
     }
 
+    func configureCell() {
+        self.dataSource.configureCell = { item, cell in
+            let dogImage = DogImage(item)
+            cell.dogImageView.image = UIImage(data: dogImage.imageData!) ?? UIImage()
+        }
+    }
+
     func loadDogList() {
-        dataFetcher.fetchData(path: URL.makeDogURL(with: breed)) { (result: Result<[String], Error>) in
+        dataFetcher.fetchData(path: URL.makeDogURL(with: breed)) { (result: Result<[URL], Error>) in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let imageURLArray):
-                self.dogImageList = imageURLArray.map { imageURLString in
-                    DogImage(imageURLString)
-                }
+                self.dogURLList = imageURLArray
             }
         }
     }
@@ -54,7 +52,8 @@ class DogsViewController: UIViewController {
 
 extension DogsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let currentImage =  UIImage(data: dogImageList[indexPath.row].dogImage!) ?? UIImage()
+        let dogImage = DogImage(dogURLList[indexPath.row])
+        let currentImage =  UIImage(data: dogImage.imageData!) ?? UIImage()
         let imageCrop = currentImage.getCropRatio()
         return tableView.frame.width / imageCrop
     }
