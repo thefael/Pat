@@ -33,8 +33,7 @@ class DogsViewController: UIViewController {
 
     func configureCell() {
         self.dataSource.configureCell = { item, cell in
-            let dogImage = DogImage(item)
-            cell.dogImageView.image = UIImage(data: dogImage.imageData!) ?? UIImage()
+            cell.imageURL = item
         }
     }
 
@@ -52,8 +51,8 @@ class DogsViewController: UIViewController {
 
 extension DogsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let dogImage = DogImage(dogURLList[indexPath.row])
-        let currentImage =  UIImage(data: dogImage.imageData!) ?? UIImage()
+        let dogImageData = NSData(contentsOf: dogURLList[indexPath.row]) as Data?
+        let currentImage =  UIImage(data: dogImageData!) ?? UIImage()
         let imageCrop = currentImage.getCropRatio()
         return tableView.frame.width / imageCrop
     }

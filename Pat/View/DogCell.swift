@@ -3,6 +3,11 @@ import UIKit
 class DogCell: UITableViewCell {
 
     var dogImageView = UIImageView()
+    var imageURL: URL? {
+        didSet {
+            self.loadImage()
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,5 +31,18 @@ class DogCell: UITableViewCell {
         dogImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         dogImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         dogImageView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+    }
+
+    func loadImage() {
+        if let safeImageURL = imageURL {
+            var imageData: Data?
+            DispatchQueue.global().sync {
+                imageData = NSData(contentsOf: safeImageURL) as Data?
+            }
+
+            DispatchQueue.main.async {
+                self.dogImageView.image = UIImage(data: imageData ?? Data())
+            }
+        }
     }
 }
