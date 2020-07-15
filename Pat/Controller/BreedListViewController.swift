@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BreedListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
             cell.textLabel?.text = item.name
         }
         tableView.dataSource = dataSource
+        tableView.delegate = self
         loadBreedList()
     }
     
@@ -39,6 +40,19 @@ class ViewController: UIViewController {
             case .success(let breedArray):
                 self.breedList = breedArray.map { name in Breed(name: name) }
             }
+        }
+    }
+}
+
+extension BreedListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "BreedListToDogList", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dogsVC = segue.destination as? DogsViewController,
+            let index = tableView.indexPathForSelectedRow?.row {
+            dogsVC.breed = breedList[index].name
         }
     }
 }
