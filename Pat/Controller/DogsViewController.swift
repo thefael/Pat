@@ -51,9 +51,11 @@ class DogsViewController: UIViewController {
 
 extension DogsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let dogImageData = NSData(contentsOf: dogURLList[indexPath.row]) as Data?
-        let currentImage =  UIImage(data: dogImageData!) ?? UIImage()
-        let imageCrop = currentImage.getCropRatio()
-        return tableView.frame.width / imageCrop
+//        let dogImageData = NSData(contentsOf: dogURLList[indexPath.row]) as Data?
+//        let currentImage =  UIImage(data: dogImageData!) ?? UIImage()
+//        let imageCrop = currentImage.getCropRatio()
+//        return tableView.frame.width / imageCrop
+//    }
+        return 250
     }
 }

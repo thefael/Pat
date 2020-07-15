@@ -3,6 +3,11 @@ import UIKit
 class DogCell: UITableViewCell {
 
     var dogImageView = UIImageView()
+    var imageData: Data? {
+        didSet {
+            self.setImage(using: imageData)
+        }
+    }
     var imageURL: URL? {
         didSet {
             self.loadImage()
@@ -35,14 +40,15 @@ class DogCell: UITableViewCell {
 
     func loadImage() {
         if let safeImageURL = imageURL {
-            var imageData: Data?
-            DispatchQueue.global().sync {
-                imageData = NSData(contentsOf: safeImageURL) as Data?
+            DispatchQueue.global(qos: .background).async {
+                self.imageData = NSData(contentsOf: safeImageURL) as Data?
             }
+        }
+    }
 
-            DispatchQueue.main.async {
-                self.dogImageView.image = UIImage(data: imageData ?? Data())
-            }
+    func setImage(using imageData: Data?) {
+        DispatchQueue.main.async {
+            self.dogImageView.image = UIImage(data: imageData ?? Data())
         }
     }
 }
