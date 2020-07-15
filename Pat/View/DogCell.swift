@@ -39,9 +39,14 @@ class DogCell: UITableViewCell {
     }
 
     func loadImage() {
-        if let safeImageURL = imageURL {
+        if let dogImageURL = imageURL {
             DispatchQueue.global(qos: .background).async {
-                self.imageData = NSData(contentsOf: safeImageURL) as Data?
+                do {
+                    self.imageData = try Data(contentsOf: dogImageURL)
+                } catch {
+                    print("Unable to load data. \(error)")
+                }
+
             }
         }
     }
