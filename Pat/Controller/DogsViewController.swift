@@ -20,15 +20,17 @@ class DogsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         configureTablewView()
         loadDogList()
         self.configureCell()
+//        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = 200
     }
 
     func configureTablewView() {
         tableView.register(DogCell.self, forCellReuseIdentifier: "ReusableCell")
         tableView.dataSource = dataSource
-        tableView.delegate = self
     }
 
     func configureCell() {
@@ -41,21 +43,10 @@ class DogsViewController: UIViewController {
         dataFetcher.fetchData(path: URL.makeDogURL(with: breed)) { (result: Result<[URL], Error>) in
             switch result {
             case .failure(let error):
-                print(error)
+                print("This is the error: \(error)")
             case .success(let imageURLArray):
                 self.dogURLList = imageURLArray
             }
         }
-    }
-}
-
-extension DogsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let dogImageData = NSData(contentsOf: dogURLList[indexPath.row]) as Data?
-//        let currentImage =  UIImage(data: dogImageData!) ?? UIImage()
-//        let imageCrop = currentImage.getCropRatio()
-//        return tableView.frame.width / imageCrop
-//    }
-        return 250
     }
 }

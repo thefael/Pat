@@ -3,6 +3,7 @@ import UIKit
 class DogCell: UITableViewCell {
 
     var dogImageView = UIImageView()
+    var dogImage: UIImage?
     var imageData: Data? {
         didSet {
             self.setImage(using: imageData)
@@ -10,7 +11,7 @@ class DogCell: UITableViewCell {
     }
     var imageURL: URL? {
         didSet {
-            self.loadImage()
+            self.loadImageData()
         }
     }
 
@@ -27,18 +28,18 @@ class DogCell: UITableViewCell {
     }
 
     func configureImageView() {
-        dogImageView.layer.cornerRadius = 10
         dogImageView.clipsToBounds = true
     }
 
     func setImageContstraints() {
-        dogImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        dogImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        dogImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        dogImageView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        dogImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+        dogImageView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor).isActive = true
+        dogImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
+        dogImageView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor).isActive = true
+        dogImageView.contentMode = .scaleAspectFill
     }
 
-    func loadImage() {
+    func loadImageData() {
         if let dogImageURL = imageURL {
             DispatchQueue.global(qos: .background).async {
                 do {
@@ -46,14 +47,14 @@ class DogCell: UITableViewCell {
                 } catch {
                     print("Unable to load data. \(error)")
                 }
-
             }
         }
     }
 
     func setImage(using imageData: Data?) {
         DispatchQueue.main.async {
-            self.dogImageView.image = UIImage(data: imageData ?? Data())
+            self.dogImage = UIImage(data: imageData ?? Data())
+            self.dogImageView.image = self.dogImage
         }
     }
 }
