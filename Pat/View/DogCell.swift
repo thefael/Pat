@@ -2,6 +2,8 @@ import UIKit
 
 class DogCell: UITableViewCell {
 
+//    let imageFetcher: ImageFetcher = .shared
+
     var dogImageView = UIImageView()
     var dogImage: UIImage?
     var imageData: Data? {
@@ -40,6 +42,8 @@ class DogCell: UITableViewCell {
     }
 
     func loadImageData() {
+//        imageFetcher.loadImageData(from: imageURL)
+//        self.imageData = self.imageFetcher.imageData
         if let dogImageURL = imageURL {
             DispatchQueue.global(qos: .background).async {
                 do {
@@ -55,6 +59,15 @@ class DogCell: UITableViewCell {
         DispatchQueue.main.async {
             self.dogImage = UIImage(data: imageData ?? Data())
             self.dogImageView.image = self.dogImage
+        }
+    }
+}
+
+extension DogCell: UITableViewDelegate {
+    override func prepareForReuse() {
+        dogImageView.image = nil
+        if let url = imageURL {
+            URLSession.shared.dataTask(with: url).suspend()
         }
     }
 }
