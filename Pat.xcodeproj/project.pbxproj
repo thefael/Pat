@@ -19,6 +19,7 @@
 		A85A6C5624A463CF00D12350 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C5524A463CF00D12350 /* Breed.swift */; };
 		A887FCCD24A53DB3008EE799 /* URL+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887FCCC24A53DB3008EE799 /* URL+Endpoints.swift */; };
 		A89148A924AAC8C600C2BE66 /* ObjectDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */; };
+		A896A3E724C78AAA00D007B0 /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896A3E624C78AAA00D007B0 /* ImageFetcher.swift */; };
 		A898A17524B549A400BE8E2A /* DogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A898A17424B549A400BE8E2A /* DogsViewController.swift */; };
 		E5F0EEEFA8F5FE1804DCCAE6 /* Pods_Pat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297CC6A587290B40A81BBAEB /* Pods_Pat.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		A85A6C5524A463CF00D12350 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		A887FCCC24A53DB3008EE799 /* URL+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Endpoints.swift"; sourceTree = "<group>"; };
 		A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDataSource.swift; sourceTree = "<group>"; };
+		A896A3E624C78AAA00D007B0 /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
 		A898A17424B549A400BE8E2A /* DogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 			children = (
 				A85A6C5224A45F5A00D12350 /* DataFetcher.swift */,
 				A887FCCC24A53DB3008EE799 /* URL+Endpoints.swift */,
+				A896A3E624C78AAA00D007B0 /* ImageFetcher.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				A85A6C5324A45F5A00D12350 /* DataFetcher.swift in Sources */,
 				A849C72C24BA4C91000B3EB6 /* DogCell.swift in Sources */,
 				A898A17524B549A400BE8E2A /* DogsViewController.swift in Sources */,
+				A896A3E724C78AAA00D007B0 /* ImageFetcher.swift in Sources */,
 				A849C72F24BA6230000B3EB6 /* UIImage+getCropRatio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

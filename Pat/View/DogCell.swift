@@ -2,16 +2,12 @@ import UIKit
 
 class DogCell: UITableViewCell {
 
+    let imageFetcher: ImageFetcher = .shared
+
     var dogImageView = UIImageView()
-    var dogImage: UIImage?
-    var imageData: Data? {
-        didSet {
-            self.setImage(using: imageData)
-        }
-    }
     var imageURL: URL? {
         didSet {
-            self.loadImageData()
+            imageFetcher.fetchImage(from: imageURL, into: dogImageView)
         }
     }
 
@@ -38,23 +34,10 @@ class DogCell: UITableViewCell {
         dogImageView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor).isActive = true
         dogImageView.contentMode = .scaleAspectFill
     }
+}
 
-    func loadImageData() {
-        if let dogImageURL = imageURL {
-            DispatchQueue.global(qos: .background).async {
-                do {
-                    self.imageData = try Data(contentsOf: dogImageURL)
-                } catch {
-                    print("Unable to load data. \(error)")
-                }
-            }
-        }
-    }
-
-    func setImage(using imageData: Data?) {
-        DispatchQueue.main.async {
-            self.dogImage = UIImage(data: imageData ?? Data())
-            self.dogImageView.image = self.dogImage
-        }
+extension DogCell: UITableViewDelegate {
+    override func prepareForReuse() {
+        dogImageView.image = nil
     }
 }
