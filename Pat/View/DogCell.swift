@@ -39,8 +39,5 @@ class DogCell: UITableViewCell {
 extension DogCell: UITableViewDelegate {
     override func prepareForReuse() {
         dogImageView.image = nil
-        if let url = imageURL {
-            URLSession.shared.dataTask(with: url).suspend()
-        }
     }
 }
