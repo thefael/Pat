@@ -17,6 +17,6 @@ class DataFetcher {
                     completion(.failure(error))
                 }
             }
-       }.resume()
+        }.resume()
     }
 }

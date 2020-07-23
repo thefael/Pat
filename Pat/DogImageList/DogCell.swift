@@ -2,12 +2,18 @@ import UIKit
 
 class DogCell: UITableViewCell {
 
-    let imageFetcher: ImageFetcher = .shared
-
     var dogImageView = UIImageView()
     var imageURL: URL? {
         didSet {
-            imageFetcher.fetchImage(from: imageURL, into: dogImageView)
+            dogImageView.fetchImage(from: imageURL) { result in
+                switch result {
+                case .failure(let error):
+                    print("Failed trying to fetch image. \(error)")
+                case .success(let image):
+                    self.dogImageView.image = image
+                    ImageCache.shared.imageCache[self.imageURL!] = image
+                }
+            }
         }
     }
 

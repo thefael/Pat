@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Pat
-//
-//  Created by Rafael Rodrigues on 25/06/20.
-//  Copyright © 2020 Rafael Rodrigues. All rights reserved.
-//
-
 import UIKit
 
 class BreedListViewController: UIViewController {
