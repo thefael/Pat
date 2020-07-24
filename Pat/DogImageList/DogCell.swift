@@ -2,12 +2,21 @@ import UIKit
 
 class DogCell: UITableViewCell {
 
-    let imageFetcher: ImageFetcher = .shared
-
     var dogImageView = UIImageView()
+    var imageTask: URLSessionDataTask?
     var imageURL: URL? {
         didSet {
-            imageFetcher.fetchImage(from: imageURL, into: dogImageView)
+            imageTask = dogImageView.fetchImage(from: imageURL) { result in
+                switch result {
+                case .failure(let error):
+                    print(error.localizedDescription.description)
+                case .success(let image):
+                    self.dogImageView.image = image
+                    if let imageURL = self.imageURL {
+                        ImageCache.shared.imageCache?[imageURL] = image
+                    }
+                }
+            }
         }
     }
 
@@ -36,8 +45,10 @@ class DogCell: UITableViewCell {
     }
 }
 
-extension DogCell: UITableViewDelegate {
+extension DogCell {
     override func prepareForReuse() {
+        super.prepareForReuse()
         dogImageView.image = nil
+        imageTask?.cancel()
     }
 }
