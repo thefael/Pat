@@ -3,12 +3,13 @@ import UIKit
 class DogCell: UITableViewCell {
 
     var dogImageView = UIImageView()
+    var imageTask: URLSessionDataTask?
     var imageURL: URL? {
         didSet {
-            dogImageView.fetchImage(from: imageURL) { result in
+            imageTask = dogImageView.fetchImage(from: imageURL) { result in
                 switch result {
                 case .failure(let error):
-                    print("Failed trying to fetch image. \(error)")
+                    print(error.localizedDescription.description)
                 case .success(let image):
                     self.dogImageView.image = image
                     ImageCache.shared.imageCache[self.imageURL!] = image
@@ -42,8 +43,10 @@ class DogCell: UITableViewCell {
     }
 }
 
-extension DogCell: UITableViewDelegate {
+extension DogCell {
     override func prepareForReuse() {
+        super.prepareForReuse()
         dogImageView.image = nil
+        imageTask?.cancel()
     }
 }

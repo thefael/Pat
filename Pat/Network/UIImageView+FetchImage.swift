@@ -1,13 +1,16 @@
 import UIKit
 
 extension UIImageView {
-    func fetchImage(from imageURL: URL?, _ completion: @escaping ((Result<UIImage, Error>) -> Void)) {
+    func fetchImage(from imageURL: URL?,
+                    _ completion: @escaping ((Result<UIImage, Error>) -> Void)) -> URLSessionDataTask? {
+
+        var dataTask: URLSessionDataTask?
         if let imageURL = imageURL {
             if let cachedImage = ImageCache.shared.imageCache[imageURL] {
                 completion(.success(cachedImage))
             } else {
                 let urlSession = URLSession.shared
-                let dataTask = urlSession.dataTask(with: imageURL) { data, _, error in
+                dataTask = urlSession.dataTask(with: imageURL) { data, _, error in
                     DispatchQueue.main.async {
                         if let error = error {
                             completion(.failure(error))
@@ -16,8 +19,9 @@ extension UIImageView {
                         }
                     }
                 }
-                dataTask.resume()
+                dataTask?.resume()
             }
         }
+        return dataTask
     }
 }
