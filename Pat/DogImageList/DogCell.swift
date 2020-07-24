@@ -12,7 +12,9 @@ class DogCell: UITableViewCell {
                     print(error.localizedDescription.description)
                 case .success(let image):
                     self.dogImageView.image = image
-                    ImageCache.shared.imageCache[self.imageURL!] = image
+                    if let imageURL = self.imageURL {
+                        ImageCache.shared.imageCache?[imageURL] = image
+                    }
                 }
             }
         }

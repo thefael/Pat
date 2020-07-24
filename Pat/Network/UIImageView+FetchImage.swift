@@ -5,22 +5,21 @@ extension UIImageView {
                     _ completion: @escaping ((Result<UIImage, Error>) -> Void)) -> URLSessionDataTask? {
 
         var dataTask: URLSessionDataTask?
-        if let imageURL = imageURL {
-            if let cachedImage = ImageCache.shared.imageCache[imageURL] {
-                completion(.success(cachedImage))
-            } else {
-                let urlSession = URLSession.shared
-                dataTask = urlSession.dataTask(with: imageURL) { data, _, error in
-                    DispatchQueue.main.async {
-                        if let error = error {
-                            completion(.failure(error))
-                        } else if let data = data, let image = UIImage(data: data) {
-                            completion(.success(image))
-                        }
+        guard let imageURL = imageURL else { return nil }
+        if let cachedImage = ImageCache.shared.imageCache?[imageURL] {
+            completion(.success(cachedImage))
+        } else {
+            let urlSession = URLSession.shared
+            dataTask = urlSession.dataTask(with: imageURL) { data, _, error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        completion(.failure(error))
+                    } else if let data = data, let image = UIImage(data: data) {
+                        completion(.success(image))
                     }
                 }
-                dataTask?.resume()
             }
+            dataTask?.resume()
         }
         return dataTask
     }
