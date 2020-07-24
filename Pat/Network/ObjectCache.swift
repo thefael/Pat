@@ -3,13 +3,13 @@ class ObjectCache {
     static let shared = ObjectCache()
     private init() {}
 
-    var imageCache: [AnyHashable: AnyObject]? = [:]
+    var objCache: [AnyHashable: AnyObject]? = [:]
 
     func put(url: URL, data: UIImage) {
-        imageCache?[url] = data
+        objCache?[url] = data
     }
 
     func get(key: AnyHashable) -> AnyObject? {
-        return imageCache?[key]
+        return objCache?[key]
     }
 }

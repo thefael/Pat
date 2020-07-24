@@ -3,10 +3,10 @@ import UIKit
 extension UIImageView {
     func fetchImage(from imageURL: URL?,
                     _ completion: @escaping ((Result<UIImage, Error>) -> Void)) -> URLSessionDataTask? {
-        let imageCache = ImageCache.shared
+        let imageCache = ObjectCache.shared
         var dataTask: URLSessionDataTask?
         guard let imageURL = imageURL else { return nil }
-        if let cachedImage = imageCache.get(url: imageURL) {
+        if let cachedImage = imageCache.get(key: imageURL) as? UIImage {
             completion(.success(cachedImage))
         } else {
             let urlSession = URLSession.shared

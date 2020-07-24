@@ -2,7 +2,7 @@ import UIKit
 
 class DogCell: UITableViewCell {
 
-    let imageCache = ImageCache.shared
+    let imageCache = ObjectCache.shared
     var dogImageView = UIImageView()
     var imageTask: URLSessionDataTask?
     var imageURL: URL? {
