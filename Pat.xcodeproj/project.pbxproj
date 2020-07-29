@@ -18,7 +18,7 @@
 		A85A6C5624A463CF00D12350 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C5524A463CF00D12350 /* Breed.swift */; };
 		A887FCCD24A53DB3008EE799 /* URL+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887FCCC24A53DB3008EE799 /* URL+Endpoints.swift */; };
 		A89148A924AAC8C600C2BE66 /* ObjectDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */; };
-		A896A3E724C78AAA00D007B0 /* ObjectCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896A3E624C78AAA00D007B0 /* ObjectCache.swift */; };
+		A896A3E724C78AAA00D007B0 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896A3E624C78AAA00D007B0 /* ImageCache.swift */; };
 		A898A17524B549A400BE8E2A /* DogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A898A17424B549A400BE8E2A /* DogsViewController.swift */; };
 		A8B8E3AE24CA38C5008D1842 /* UIImageView+FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B8E3AD24CA38C5008D1842 /* UIImageView+FetchImage.swift */; };
 		E5F0EEEFA8F5FE1804DCCAE6 /* Pods_Pat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297CC6A587290B40A81BBAEB /* Pods_Pat.framework */; };
@@ -41,7 +41,7 @@
 		A85A6C5524A463CF00D12350 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		A887FCCC24A53DB3008EE799 /* URL+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Endpoints.swift"; sourceTree = "<group>"; };
 		A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDataSource.swift; sourceTree = "<group>"; };
-		A896A3E624C78AAA00D007B0 /* ObjectCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCache.swift; sourceTree = "<group>"; };
+		A896A3E624C78AAA00D007B0 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		A898A17424B549A400BE8E2A /* DogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsViewController.swift; sourceTree = "<group>"; };
 		A8B8E3AD24CA38C5008D1842 /* UIImageView+FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+FetchImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				A85A6C5224A45F5A00D12350 /* DataFetcher.swift */,
-				A896A3E624C78AAA00D007B0 /* ObjectCache.swift */,
+				A896A3E624C78AAA00D007B0 /* ImageCache.swift */,
 				A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */,
 				A887FCCC24A53DB3008EE799 /* URL+Endpoints.swift */,
 				A8B8E3AD24CA38C5008D1842 /* UIImageView+FetchImage.swift */,
@@ -272,7 +272,7 @@
 				A85A6C5324A45F5A00D12350 /* DataFetcher.swift in Sources */,
 				A849C72C24BA4C91000B3EB6 /* DogCell.swift in Sources */,
 				A898A17524B549A400BE8E2A /* DogsViewController.swift in Sources */,
-				A896A3E724C78AAA00D007B0 /* ObjectCache.swift in Sources */,
+				A896A3E724C78AAA00D007B0 /* ImageCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

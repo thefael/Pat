@@ -2,7 +2,7 @@ import UIKit
 
 class DogCell: UITableViewCell {
 
-    let imageCache = ObjectCache.shared
+    let imageCache = ImageCache.shared
     var dogImageView = UIImageView()
     var imageTask: URLSessionDataTask?
     var imageURL: URL? {
@@ -13,9 +13,9 @@ class DogCell: UITableViewCell {
                     print(error.localizedDescription.description)
                 case .success(let image):
                     self.dogImageView.image = image
-                    if let imageURL = self.imageURL {
-                        self.imageCache.put(url: imageURL, data: image)
-                    }
+//                    if let imageURL = self.imageURL {
+//                        self.imageCache.put(url: imageURL, data: image)
+//                    }
                 }
             }
         }
