@@ -13,9 +13,6 @@ class DogCell: UITableViewCell {
                     print(error.localizedDescription.description)
                 case .success(let image):
                     self.dogImageView.image = image
-//                    if let imageURL = self.imageURL {
-//                        self.imageCache.put(url: imageURL, data: image)
-//                    }
                 }
             }
         }
