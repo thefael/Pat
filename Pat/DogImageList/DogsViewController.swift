@@ -7,6 +7,7 @@ class DogsViewController: UIViewController {
     var breed = String()
 
     let dataFetcher = DataFetcher()
+    let interactor = DogsInteractor()
     let dataSource = ObjectDataSource<URL, DogCell>()
     var dogURLList = [URL]() {
         didSet {
@@ -21,9 +22,10 @@ class DogsViewController: UIViewController {
         super.viewDidLoad()
 
         configureTablewView()
-        loadDogList()
+        interactor.loadDogList(from: breed) { dogURLList in
+            self.dogURLList = dogURLList
+        }
         self.configureCell()
-//        tableView.estimatedRowHeight = 200
         tableView.rowHeight = 200
     }
 
@@ -35,17 +37,6 @@ class DogsViewController: UIViewController {
     func configureCell() {
         self.dataSource.configureCell = { item, cell in
             cell.imageURL = item
-        }
-    }
-
-    func loadDogList() {
-        dataFetcher.fetchData(path: URL.makeDogURL(with: breed)) { (result: Result<[URL], Error>) in
-            switch result {
-            case .failure(let error):
-                print("This is the error: \(error)")
-            case .success(let imageURLArray):
-                self.dogURLList = imageURLArray
-            }
         }
     }
 }

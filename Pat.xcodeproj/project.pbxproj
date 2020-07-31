@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A832180B24D3CABF00E8F10E /* DogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832180A24D3CABF00E8F10E /* DogsInteractor.swift */; };
 		A849C72C24BA4C91000B3EB6 /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849C72B24BA4C91000B3EB6 /* DogCell.swift */; };
 		A85A6C3A24A454E800D12350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C3924A454E800D12350 /* AppDelegate.swift */; };
 		A85A6C3C24A454E800D12350 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C3B24A454E800D12350 /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 		A896A3E724C78AAA00D007B0 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896A3E624C78AAA00D007B0 /* ImageCache.swift */; };
 		A898A17524B549A400BE8E2A /* DogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A898A17424B549A400BE8E2A /* DogsViewController.swift */; };
 		A8B8E3AE24CA38C5008D1842 /* UIImageView+FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B8E3AD24CA38C5008D1842 /* UIImageView+FetchImage.swift */; };
+		A8CDA31324D375B200C42DFC /* BreedListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDA31224D375B200C42DFC /* BreedListInteractor.swift */; };
 		E5F0EEEFA8F5FE1804DCCAE6 /* Pods_Pat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297CC6A587290B40A81BBAEB /* Pods_Pat.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,7 @@
 		0CB4A218FC7224F25F155E1F /* Pods-Pat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pat.release.xcconfig"; path = "Target Support Files/Pods-Pat/Pods-Pat.release.xcconfig"; sourceTree = "<group>"; };
 		297CC6A587290B40A81BBAEB /* Pods_Pat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		658D737CAB8788C8A39027AC /* Pods-Pat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pat.debug.xcconfig"; path = "Target Support Files/Pods-Pat/Pods-Pat.debug.xcconfig"; sourceTree = "<group>"; };
+		A832180A24D3CABF00E8F10E /* DogsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsInteractor.swift; sourceTree = "<group>"; };
 		A849C72B24BA4C91000B3EB6 /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
 		A85A6C3624A454E800D12350 /* Pat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85A6C3924A454E800D12350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		A896A3E624C78AAA00D007B0 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		A898A17424B549A400BE8E2A /* DogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsViewController.swift; sourceTree = "<group>"; };
 		A8B8E3AD24CA38C5008D1842 /* UIImageView+FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+FetchImage.swift"; sourceTree = "<group>"; };
+		A8CDA31224D375B200C42DFC /* BreedListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			children = (
 				A85A6C5524A463CF00D12350 /* Breed.swift */,
 				A85A6C3D24A454E800D12350 /* BreedListViewController.swift */,
+				A8CDA31224D375B200C42DFC /* BreedListInteractor.swift */,
 			);
 			path = BreedList;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			children = (
 				A849C72B24BA4C91000B3EB6 /* DogCell.swift */,
 				A898A17424B549A400BE8E2A /* DogsViewController.swift */,
+				A832180A24D3CABF00E8F10E /* DogsInteractor.swift */,
 			);
 			path = DogImageList;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A89148A924AAC8C600C2BE66 /* ObjectDataSource.swift in Sources */,
+				A8CDA31324D375B200C42DFC /* BreedListInteractor.swift in Sources */,
+				A832180B24D3CABF00E8F10E /* DogsInteractor.swift in Sources */,
 				A887FCCD24A53DB3008EE799 /* URL+Endpoints.swift in Sources */,
 				A85A6C5624A463CF00D12350 /* Breed.swift in Sources */,
 				A85A6C3E24A454E800D12350 /* BreedListViewController.swift in Sources */,
