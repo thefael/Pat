@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A81FE63B24D6137F00D40FB8 /* FavouritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81FE63A24D6137F00D40FB8 /* FavouritesListViewController.swift */; };
 		A832180B24D3CABF00E8F10E /* DogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832180A24D3CABF00E8F10E /* DogsInteractor.swift */; };
 		A849C72C24BA4C91000B3EB6 /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849C72B24BA4C91000B3EB6 /* DogCell.swift */; };
 		A85A6C3A24A454E800D12350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C3924A454E800D12350 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 		0CB4A218FC7224F25F155E1F /* Pods-Pat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pat.release.xcconfig"; path = "Target Support Files/Pods-Pat/Pods-Pat.release.xcconfig"; sourceTree = "<group>"; };
 		297CC6A587290B40A81BBAEB /* Pods_Pat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		658D737CAB8788C8A39027AC /* Pods-Pat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pat.debug.xcconfig"; path = "Target Support Files/Pods-Pat/Pods-Pat.debug.xcconfig"; sourceTree = "<group>"; };
+		A81FE63A24D6137F00D40FB8 /* FavouritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesListViewController.swift; sourceTree = "<group>"; };
 		A832180A24D3CABF00E8F10E /* DogsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsInteractor.swift; sourceTree = "<group>"; };
 		A849C72B24BA4C91000B3EB6 /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
 		A85A6C3624A454E800D12350 /* Pat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A81FE63924D6129D00D40FB8 /* FavouritesList */ = {
+			isa = PBXGroup;
+			children = (
+				A81FE63A24D6137F00D40FB8 /* FavouritesListViewController.swift */,
+			);
+			path = FavouritesList;
+			sourceTree = "<group>";
+		};
 		A85A6C2D24A454E800D12350 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 				A85A6C5124A45F4500D12350 /* Network */,
 				A85A6C5424A463A300D12350 /* BreedList */,
 				A8B8E3AC24CA0108008D1842 /* DogImageList */,
+				A81FE63924D6129D00D40FB8 /* FavouritesList */,
 			);
 			path = Pat;
 			sourceTree = "<group>";
@@ -274,6 +285,7 @@
 				A887FCCD24A53DB3008EE799 /* URL+Endpoints.swift in Sources */,
 				A85A6C5624A463CF00D12350 /* Breed.swift in Sources */,
 				A85A6C3E24A454E800D12350 /* BreedListViewController.swift in Sources */,
+				A81FE63B24D6137F00D40FB8 /* FavouritesListViewController.swift in Sources */,
 				A8B8E3AE24CA38C5008D1842 /* UIImageView+FetchImage.swift in Sources */,
 				A85A6C3A24A454E800D12350 /* AppDelegate.swift in Sources */,
 				A85A6C3C24A454E800D12350 /* SceneDelegate.swift in Sources */,
