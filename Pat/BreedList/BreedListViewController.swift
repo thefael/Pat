@@ -22,9 +22,15 @@ class BreedListViewController: UIViewController {
         }
         tableView.dataSource = dataSource
         tableView.delegate = self
-        interactor.loadBreedList { breedList in
+        loadBreedList()
+    }
+
+    func loadBreedList() {
+        interactor.loadBreedList(onSuccess: { breedList in
             self.breedList = breedList
-        }
+        }, onError: { error in
+            print("Error trying to load breedList: \(error)")
+        })
     }
 }
 

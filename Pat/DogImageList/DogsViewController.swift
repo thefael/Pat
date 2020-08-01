@@ -20,13 +20,20 @@ class DogsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureTablewView()
-        interactor.loadDogList(from: breed) { dogURLList in
-            self.dogURLList = dogURLList
-        }
+        loadDogList()
         self.configureCell()
         tableView.rowHeight = 200
+    }
+
+    func loadDogList() {
+        interactor.loadDogList(from: breed,
+                               onSuccess: { dogURLList in
+            self.dogURLList = dogURLList
+        },
+                               onError: { error in
+            print("This is the error: \(error)")
+        })
     }
 
     func configureTablewView() {
