@@ -22,7 +22,12 @@ class DogsViewController: UIViewController {
         super.viewDidLoad()
         configureTablewView()
         loadDogList()
-        self.configureCell()
+        configureCell()
+    }
+
+    func configureTablewView() {
+        tableView.register(DogCell.self, forCellReuseIdentifier: "ReusableCell")
+        tableView.dataSource = dataSource
         tableView.rowHeight = 200
     }
 
@@ -34,11 +39,6 @@ class DogsViewController: UIViewController {
                                onError: { error in
             print("This is the error: \(error)")
         })
-    }
-
-    func configureTablewView() {
-        tableView.register(DogCell.self, forCellReuseIdentifier: "ReusableCell")
-        tableView.dataSource = dataSource
     }
 
     func configureCell() {
