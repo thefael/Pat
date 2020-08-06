@@ -3,7 +3,7 @@ import UIKit
 class BreedListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
+
     let dataFetcher = DataFetcher()
     let interactor = BreedListInteractor()
     let dataSource = ObjectDataSource<Breed, UITableViewCell>()
@@ -23,6 +23,10 @@ class BreedListViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = self
         loadBreedList()
+    }
+
+    @IBAction func favouriteButton(_ sender: UIButton) {
+        sender.isSelected.toggle()
     }
 
     func loadBreedList() {
