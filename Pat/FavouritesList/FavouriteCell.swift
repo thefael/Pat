@@ -2,7 +2,7 @@ import UIKit
 
 class FavouriteCell: UITableViewCell {
 
-    let imageCache = ImageCache.shared
+    var breed = String()
     let imageViews = [UIImageView](repeating: UIImageView(), count: 4)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

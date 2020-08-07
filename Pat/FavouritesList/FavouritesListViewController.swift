@@ -3,6 +3,7 @@ import UIKit
 class FavouritesListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let dataSource = ObjectDataSource<[UIImage], FavouriteCell>()
+    var favouritesList = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

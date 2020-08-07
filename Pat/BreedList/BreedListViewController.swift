@@ -6,6 +6,7 @@ class BreedListViewController: UIViewController {
 
     let dataFetcher = DataFetcher()
     let interactor = BreedListInteractor()
+    let favouriteVC = FavouritesListViewController()
     let dataSource = ObjectDataSource<Breed, UITableViewCell>()
     var breedList = [Breed]() {
         didSet {
@@ -25,8 +26,9 @@ class BreedListViewController: UIViewController {
         loadBreedList()
     }
 
-    @IBAction func favouriteButton(_ sender: UIButton) {
+    @IBAction func favouritePressed(_ sender: UIButton) {
         sender.isSelected.toggle()
+        interactor.updateFavouritesList(sender: sender, tableView: tableView, breedList: breedList)
     }
 
     func loadBreedList() {

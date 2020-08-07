@@ -33,7 +33,7 @@
                                                     <state key="normal" image="heart" catalog="system"/>
                                                     <state key="selected" image="heart.fill" catalog="system"/>
                                                     <connections>
-                                                        <action selector="favouriteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cop-T3-tz1"/>
+                                                        <action selector="favouritePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cop-T3-tz1"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
