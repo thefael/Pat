@@ -3,6 +3,7 @@ import UIKit
 class BreedListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var delegate: UpdateFavouritesList?
 
     let dataFetcher = DataFetcher()
     let interactor = BreedListInteractor()
@@ -24,11 +25,12 @@ class BreedListViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = self
         loadBreedList()
+        delegate = favouriteVC
     }
 
     @IBAction func favouritePressed(_ sender: UIButton) {
         sender.isSelected.toggle()
-        interactor.updateFavouritesList(sender: sender, tableView: tableView, breedList: breedList)
+        delegate?.updateFavouritesList(sender: sender, tableView: tableView, breedList: breedList)
     }
 
     func loadBreedList() {

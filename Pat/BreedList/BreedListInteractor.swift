@@ -16,22 +16,4 @@ class BreedListInteractor {
             }
         }
     }
-
-    func updateFavouritesList(sender: UIButton, tableView: UITableView, breedList: [Breed]) {
-        guard let row = indexPathOfButtonTapped(sender: sender, tableView: tableView)?.row else { return }
-        let selectedBreed = breedList[row].name
-        if sender.isSelected {
-            favouriteVC.favouritesList.append(selectedBreed)
-            print(favouriteVC.favouritesList)
-        } else if !sender.isSelected {
-            favouriteVC.favouritesList.removeAll { $0 == selectedBreed }
-            print(favouriteVC.favouritesList)
-        }
-    }
-
-    func indexPathOfButtonTapped(sender: AnyObject, tableView: UITableView) -> IndexPath? {
-        let buttonPosition = sender.convert(CGPoint.zero, to: tableView)
-        let indexPath = tableView.indexPathForRow(at: buttonPosition)
-        return indexPath
-    }
 }
