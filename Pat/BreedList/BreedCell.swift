@@ -3,6 +3,7 @@ import UIKit
 class BreedCell: UITableViewCell {
     let breedLabel = UILabel()
     let favButton = UIButton()
+    var updateFaveList: ((UIButton) -> Void)?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -15,6 +16,7 @@ class BreedCell: UITableViewCell {
 
     @objc private func handleMarkAsFavourite() {
         toggleButton()
+        updateFaveList?(favButton)
     }
 
     func toggleButton() {
