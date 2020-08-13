@@ -3,12 +3,10 @@ import UIKit
 class BreedListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var delegate: UpdateFavouritesList?
-
+    
     let dataFetcher = DataFetcher()
     let interactor = BreedListInteractor()
-    let favouriteVC = FavouritesListViewController()
-    let dataSource = ObjectDataSource<Breed, UITableViewCell>()
+    let dataSource = ObjectDataSource<Breed, BreedCell>()
     var breedList = [Breed]() {
         didSet {
             DispatchQueue.main.async {
@@ -17,20 +15,18 @@ class BreedListViewController: UIViewController {
             }
         }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         dataSource.configureCell = { item, cell in
             cell.textLabel?.text = item.name
         }
+
+        tableView.register(BreedCell.self, forCellReuseIdentifier: "ReusableCell")
         tableView.dataSource = dataSource
         tableView.delegate = self
         loadBreedList()
-        delegate = favouriteVC
-    }
-
-    @IBAction func favouritePressed(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        delegate?.updateFavouritesList(sender: sender, tableView: tableView, breedList: breedList)
     }
 
     func loadBreedList() {
