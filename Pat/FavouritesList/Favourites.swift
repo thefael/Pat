@@ -1,7 +1,8 @@
 import UIKit
 
 protocol UpdateFavouritesList {
-    func updateFavouritesList(sender: UIButton, tableView: UITableView, breedList: [Breed])
+    func updateFavouritesList(sender: UIButton, cell: UITableViewCell,
+                              tableView: UITableView, breedList: [Breed])
 }
 
 class Favourites: UpdateFavouritesList {
@@ -23,19 +24,18 @@ class Favourites: UpdateFavouritesList {
         favouritesList = list
     }
 
-    func updateFavouritesList(sender: UIButton, tableView: UITableView, breedList: [Breed]) {
-        guard let row = indexPathOfButtonTapped(sender: sender, tableView: tableView)?.row else { return }
+    func updateFavouritesList(sender: UIButton,
+                              cell: UITableViewCell,
+                              tableView: UITableView,
+                              breedList: [Breed]) {
+
+        guard let row = tableView.indexPath(for: cell)?.row else { return }
         let selectedBreed = breedList[row].name
         if sender.isSelected {
             favouritesList.append(selectedBreed)
+            print(favouritesList)
         } else if !sender.isSelected {
             favouritesList.removeAll { $0 == selectedBreed }
         }
-    }
-
-    func indexPathOfButtonTapped(sender: AnyObject, tableView: UITableView) -> IndexPath? {
-        let buttonPosition = sender.convert(CGPoint.zero, to: tableView)
-        let indexPath = tableView.indexPathForRow(at: buttonPosition)
-        return indexPath
     }
 }

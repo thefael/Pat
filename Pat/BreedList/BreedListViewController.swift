@@ -24,8 +24,9 @@ class BreedListViewController: UIViewController {
             cell.textLabel?.text = item.name
             cell.updateFaveList = { favButton in
                 self.favourites.updateFavouritesList(sender: favButton,
-                                                tableView: self.tableView,
-                                                breedList: self.breedList)
+                                                     cell: cell,
+                                                     tableView: self.tableView,
+                                                     breedList: self.breedList)
             }
         }
 
