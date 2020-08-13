@@ -28,6 +28,8 @@ class BreedListViewController: UIViewController {
                                                      tableView: self.tableView,
                                                      breedList: self.breedList)
             }
+            cell.setButtonInitialImage(string: item.name)
+
         }
 
         tableView.register(BreedCell.self, forCellReuseIdentifier: "ReusableCell")
