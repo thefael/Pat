@@ -3,8 +3,7 @@ import UIKit
 class BreedCell: UITableViewCell {
     let breedLabel = UILabel()
     let favButton = UIButton()
-    var updateFaveList: ((UIButton) -> Void)?
-
+    var updateFaveList: (() -> Void)?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         favButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
@@ -13,21 +12,13 @@ class BreedCell: UITableViewCell {
     }
 
     @objc private func handleMarkAsFavourite() {
-        toggleButton()
-        updateFaveList?(favButton)
-    }
-
-    func labelIsInFaveList(label: String) -> Bool {
-        let favList = Favourites.shared.getFavList()
-        if favList.contains(label) {
-            return true
-        } else {
-            return false
-        }
+//        toggleButton()
+        updateFaveList?()
     }
 
     func toggleButton() {
         favButton.isSelected = !favButton.isSelected
+        print(favButton.isSelected)
         guard let onImg = UIImage(systemName: "heart.fill"),
             let offImg = UIImage(systemName: "heart") else { return }
         DispatchQueue.main.async {

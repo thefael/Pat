@@ -1,11 +1,6 @@
 import UIKit
 
-protocol UpdateFavouritesList {
-    func updateFavouritesList(sender: UIButton, cell: UITableViewCell,
-                              tableView: UITableView, breedList: [Breed])
-}
-
-class Favourites: UpdateFavouritesList {
+class Favourites {
     static let shared = Favourites()
     private init() {}
 
@@ -24,18 +19,19 @@ class Favourites: UpdateFavouritesList {
         favouritesList = list
     }
 
-    func updateFavouritesList(sender: UIButton,
-                              cell: UITableViewCell,
-                              tableView: UITableView,
-                              breedList: [Breed]) {
+    func addBreed(breed: String) {
+        favouritesList.append(breed)
+    }
 
-        guard let row = tableView.indexPath(for: cell)?.row else { return }
-        let selectedBreed = breedList[row].name
-        if sender.isSelected {
-            favouritesList.append(selectedBreed)
-            print(favouritesList)
-        } else if !sender.isSelected {
-            favouritesList.removeAll { $0 == selectedBreed }
+    func removeBreed(breed: String) {
+        favouritesList.removeAll { $0 == breed }
+    }
+
+    func isFavourite(breed: String) -> Bool {
+        if favouritesList.contains(breed) {
+            return true
+        } else {
+            return false
         }
     }
 }

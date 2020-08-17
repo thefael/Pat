@@ -4,6 +4,7 @@ class BreedListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    let favourites = Favourites.shared
     let dataFetcher = DataFetcher()
     let interactor = BreedListInteractor()
     let dataSource = ObjectDataSource<Breed, BreedCell>()
@@ -21,14 +22,14 @@ class BreedListViewController: UIViewController {
 
         dataSource.configureCell = { item, cell in
             cell.textLabel?.text = item.name
-            cell.updateFaveList = { favButton in
-                Favourites.shared.updateFavouritesList(sender: favButton,
-                                                     cell: cell,
-                                                     tableView: self.tableView,
-                                                     breedList: self.breedList)
-            }
             cell.setButtonInitialImage(string: item.name)
-
+            cell.updateFaveList = {
+                if self.favourites.isFavourite(breed: item.name) {
+                    self.favourites.removeBreed(breed: item.name)
+                } else {
+                    self.favourites.addBreed(breed: item.name)
+                }
+            }
         }
 
         tableView.register(BreedCell.self, forCellReuseIdentifier: "ReusableCell")
