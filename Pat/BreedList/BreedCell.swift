@@ -3,7 +3,6 @@ import UIKit
 class BreedCell: UITableViewCell {
     let breedLabel = UILabel()
     let favButton = UIButton()
-    let favourites = Favourites.shared
     var updateFaveList: ((UIButton) -> Void)?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -40,7 +39,7 @@ class BreedCell: UITableViewCell {
     }
 
     func setButtonInitialImage(string: String) {
-        if let favList = self.favourites.defaults.object(forKey: "favouritesListKey") as? [String] {
+        if let favList = Favourites.shared.defaults.object(forKey: "favouritesListKey") as? [String] {
             if favList.contains(string) {
                 favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             } else {

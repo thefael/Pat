@@ -4,7 +4,6 @@ class BreedListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    let favourites = Favourites.shared
     let dataFetcher = DataFetcher()
     let interactor = BreedListInteractor()
     let dataSource = ObjectDataSource<Breed, BreedCell>()
@@ -23,7 +22,7 @@ class BreedListViewController: UIViewController {
         dataSource.configureCell = { item, cell in
             cell.textLabel?.text = item.name
             cell.updateFaveList = { favButton in
-                self.favourites.updateFavouritesList(sender: favButton,
+                Favourites.shared.updateFavouritesList(sender: favButton,
                                                      cell: cell,
                                                      tableView: self.tableView,
                                                      breedList: self.breedList)
