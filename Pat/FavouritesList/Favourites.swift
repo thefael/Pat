@@ -17,6 +17,7 @@ class Favourites {
 
     func updateFavouritesList(with list: [String]) {
         favouritesList = list
+        defaults.set(favouritesList, forKey: "favouritesListKey")
     }
 
     func addBreed(breed: String) {
@@ -28,7 +29,8 @@ class Favourites {
     }
 
     func isFavourite(breed: String) -> Bool {
-        if favouritesList.contains(breed) {
+        guard let list = defaults.object(forKey: "favouritesListKey") as? [String] else { return false }
+        if list.contains(breed) {
             return true
         } else {
             return false

@@ -20,14 +20,16 @@ class BreedListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateFavoutitesList()
         dataSource.configureCell = { item, cell in
-            cell.textLabel?.text = item.name
-            cell.setButtonInitialImage(string: item.name)
+            let breed = item.name
+            cell.textLabel?.text = breed
+            cell.setButtonInitialImage(breed: breed)
             cell.updateFaveList = {
-                if self.favourites.isFavourite(breed: item.name) {
-                    self.favourites.removeBreed(breed: item.name)
+                if self.favourites.isFavourite(breed: breed) {
+                    self.favourites.removeBreed(breed: breed)
                 } else {
-                    self.favourites.addBreed(breed: item.name)
+                    self.favourites.addBreed(breed: breed)
                 }
             }
         }
@@ -36,6 +38,12 @@ class BreedListViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = self
         loadBreedList()
+    }
+
+    func updateFavoutitesList() {
+        if let list = favourites.defaults.object(forKey: "favouritesListKey") as? [String] {
+            favourites.updateFavouritesList(with: list)
+        }
     }
 
     func loadBreedList() {

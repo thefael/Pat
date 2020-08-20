@@ -16,10 +16,6 @@ class FavouritesListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let list = favourites.defaults.object(forKey: "favouritesListKey") as? [String] {
-            favourites.updateFavouritesList(with: list)
-            tableView.reloadData()
-        }
         configureTableView()
         dataSource.configureCell = { item, cell in
             cell.textLabel?.text = item
@@ -28,7 +24,6 @@ class FavouritesListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("apareceu")
         favouritesList = favourites.getFavList()
     }
 

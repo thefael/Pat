@@ -1,7 +1,7 @@
 import UIKit
 
 class BreedCell: UITableViewCell {
-    let breedLabel = UILabel()
+    let favourites = Favourites.shared
     let favButton = UIButton()
     var updateFaveList: (() -> Void)?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -12,38 +12,28 @@ class BreedCell: UITableViewCell {
     }
 
     @objc private func handleMarkAsFavourite() {
-//        toggleButton()
+        switchButtonImage()
         updateFaveList?()
     }
 
-    func toggleButton() {
-        favButton.isSelected = !favButton.isSelected
-        print(favButton.isSelected)
-        guard let onImg = UIImage(systemName: "heart.fill"),
-            let offImg = UIImage(systemName: "heart") else { return }
-        DispatchQueue.main.async {
-            self.setButtonImage(button: self.favButton,
-            onImg: onImg,
-            offImg: offImg,
-            isOn: self.favButton.isSelected)
-        }
-    }
-
-    func setButtonInitialImage(string: String) {
-        if let favList = Favourites.shared.defaults.object(forKey: "favouritesListKey") as? [String] {
-            if favList.contains(string) {
-                favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            } else {
-                favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+    func switchButtonImage() {
+        guard let breed = textLabel?.text else { return }
+        if favourites.isFavourite(breed: breed) {
+            DispatchQueue.main.async {
+                self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             }
         }
     }
 
-    func setButtonImage(button: UIButton, onImg: UIImage, offImg: UIImage, isOn: Bool ) {
-        if isOn {
-            button.setImage(onImg, for: .normal)
+    func setButtonInitialImage(breed: String) {
+        if favourites.isFavourite(breed: breed) {
+            favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         } else {
-            button.setImage(offImg, for: .normal)
+            favButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
     }
 
