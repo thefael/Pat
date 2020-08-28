@@ -2,28 +2,21 @@ import UIKit
 
 class Favourites {
     static let shared = Favourites()
-    private init() {}
+    private init() {
+        if let list = defaults.object(forKey: "favouritesListKey") as? [String] {
+            favouritesList = list
+        }
+    }
 
     private let defaults = UserDefaults.standard
     private var favouritesList = [String]() {
-        didSet {
+        didSet {    
             defaults.set(favouritesList, forKey: "favouritesListKey")
         }
     }
 
     func getFavList() -> [String] {
         return favouritesList
-    }
-
-    func setFaveListInitialValue() {
-        if let list = defaults.object(forKey: "favouritesListKey") as? [String] {
-            favouritesList = list
-        }
-    }
-
-    func updateFavouritesList(with list: [String]) {
-        favouritesList = list
-        defaults.set(favouritesList, forKey: "favouritesListKey")
     }
 
     func addBreed(breed: String) {
