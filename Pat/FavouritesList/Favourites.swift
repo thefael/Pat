@@ -4,7 +4,7 @@ class Favourites {
     static let shared = Favourites()
     private init() {}
 
-    let defaults = UserDefaults.standard
+    private let defaults = UserDefaults.standard
     private var favouritesList = [String]() {
         didSet {
             defaults.set(favouritesList, forKey: "favouritesListKey")
@@ -13,6 +13,12 @@ class Favourites {
 
     func getFavList() -> [String] {
         return favouritesList
+    }
+
+    func setFaveListInitialValue() {
+        if let list = defaults.object(forKey: "favouritesListKey") as? [String] {
+            favouritesList = list
+        }
     }
 
     func updateFavouritesList(with list: [String]) {

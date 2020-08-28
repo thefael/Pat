@@ -19,8 +19,7 @@ class BreedListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        updateFavoutitesList()
+        favourites.setFaveListInitialValue()
         dataSource.configureCell = { item, cell in
             let breed = item.name
             cell.textLabel?.text = breed
@@ -38,12 +37,6 @@ class BreedListViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = self
         loadBreedList()
-    }
-
-    func updateFavoutitesList() {
-        if let list = favourites.defaults.object(forKey: "favouritesListKey") as? [String] {
-            favourites.updateFavouritesList(with: list)
-        }
     }
 
     func loadBreedList() {
