@@ -19,7 +19,6 @@ class BreedListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        favourites.setFaveListInitialValue()
         dataSource.configureCell = { item, cell in
             let breed = item.name
             cell.textLabel?.text = breed

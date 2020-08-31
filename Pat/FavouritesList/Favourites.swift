@@ -9,11 +9,7 @@ class Favourites {
     }
 
     private let defaults = UserDefaults.standard
-    private var favouritesList = [String]() {
-        didSet {    
-            defaults.set(favouritesList, forKey: "favouritesListKey")
-        }
-    }
+    private var favouritesList = [String]() 
 
     func getFavList() -> [String] {
         return favouritesList
@@ -21,10 +17,12 @@ class Favourites {
 
     func addBreed(breed: String) {
         favouritesList.append(breed)
+        defaults.set(favouritesList, forKey: "favouritesListKey")
     }
 
     func removeBreed(breed: String) {
         favouritesList.removeAll { $0 == breed }
+        defaults.set(favouritesList, forKey: "favouritesListKey")
     }
 
     func isFavourite(breed: String) -> Bool {
