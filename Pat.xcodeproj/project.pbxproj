@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A81FE63B24D6137F00D40FB8 /* FavouritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81FE63A24D6137F00D40FB8 /* FavouritesListViewController.swift */; };
+		A81FE63D24D614AF00D40FB8 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81FE63C24D614AF00D40FB8 /* FavouriteCell.swift */; };
 		A832180B24D3CABF00E8F10E /* DogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832180A24D3CABF00E8F10E /* DogsInteractor.swift */; };
 		A849C72C24BA4C91000B3EB6 /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849C72B24BA4C91000B3EB6 /* DogCell.swift */; };
 		A85A6C3A24A454E800D12350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C3924A454E800D12350 /* AppDelegate.swift */; };
@@ -17,9 +19,11 @@
 		A85A6C4624A454EE00D12350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85A6C4424A454EE00D12350 /* LaunchScreen.storyboard */; };
 		A85A6C5324A45F5A00D12350 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C5224A45F5A00D12350 /* DataFetcher.swift */; };
 		A85A6C5624A463CF00D12350 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85A6C5524A463CF00D12350 /* Breed.swift */; };
+		A883C1EF24E47D77004BEF6C /* BreedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883C1EE24E47D77004BEF6C /* BreedCell.swift */; };
 		A887FCCD24A53DB3008EE799 /* URL+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887FCCC24A53DB3008EE799 /* URL+Endpoints.swift */; };
 		A89148A924AAC8C600C2BE66 /* ObjectDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */; };
 		A896A3E724C78AAA00D007B0 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896A3E624C78AAA00D007B0 /* ImageCache.swift */; };
+		A897910624E30CBE00D5649C /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897910524E30CBE00D5649C /* Favourites.swift */; };
 		A898A17524B549A400BE8E2A /* DogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A898A17424B549A400BE8E2A /* DogsViewController.swift */; };
 		A8B8E3AE24CA38C5008D1842 /* UIImageView+FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B8E3AD24CA38C5008D1842 /* UIImageView+FetchImage.swift */; };
 		A8CDA31324D375B200C42DFC /* BreedListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDA31224D375B200C42DFC /* BreedListInteractor.swift */; };
@@ -30,6 +34,8 @@
 		0CB4A218FC7224F25F155E1F /* Pods-Pat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pat.release.xcconfig"; path = "Target Support Files/Pods-Pat/Pods-Pat.release.xcconfig"; sourceTree = "<group>"; };
 		297CC6A587290B40A81BBAEB /* Pods_Pat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		658D737CAB8788C8A39027AC /* Pods-Pat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pat.debug.xcconfig"; path = "Target Support Files/Pods-Pat/Pods-Pat.debug.xcconfig"; sourceTree = "<group>"; };
+		A81FE63A24D6137F00D40FB8 /* FavouritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesListViewController.swift; sourceTree = "<group>"; };
+		A81FE63C24D614AF00D40FB8 /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
 		A832180A24D3CABF00E8F10E /* DogsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsInteractor.swift; sourceTree = "<group>"; };
 		A849C72B24BA4C91000B3EB6 /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
 		A85A6C3624A454E800D12350 /* Pat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,9 +48,11 @@
 		A85A6C4724A454EE00D12350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85A6C5224A45F5A00D12350 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		A85A6C5524A463CF00D12350 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		A883C1EE24E47D77004BEF6C /* BreedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCell.swift; sourceTree = "<group>"; };
 		A887FCCC24A53DB3008EE799 /* URL+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Endpoints.swift"; sourceTree = "<group>"; };
 		A89148A824AAC8C600C2BE66 /* ObjectDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDataSource.swift; sourceTree = "<group>"; };
 		A896A3E624C78AAA00D007B0 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		A897910524E30CBE00D5649C /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 		A898A17424B549A400BE8E2A /* DogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsViewController.swift; sourceTree = "<group>"; };
 		A8B8E3AD24CA38C5008D1842 /* UIImageView+FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+FetchImage.swift"; sourceTree = "<group>"; };
 		A8CDA31224D375B200C42DFC /* BreedListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListInteractor.swift; sourceTree = "<group>"; };
@@ -68,6 +76,16 @@
 				297CC6A587290B40A81BBAEB /* Pods_Pat.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A81FE63924D6129D00D40FB8 /* FavouritesList */ = {
+			isa = PBXGroup;
+			children = (
+				A81FE63C24D614AF00D40FB8 /* FavouriteCell.swift */,
+				A81FE63A24D6137F00D40FB8 /* FavouritesListViewController.swift */,
+				A897910524E30CBE00D5649C /* Favourites.swift */,
+			);
+			path = FavouritesList;
 			sourceTree = "<group>";
 		};
 		A85A6C2D24A454E800D12350 = {
@@ -95,6 +113,7 @@
 				A85A6C5124A45F4500D12350 /* Network */,
 				A85A6C5424A463A300D12350 /* BreedList */,
 				A8B8E3AC24CA0108008D1842 /* DogImageList */,
+				A81FE63924D6129D00D40FB8 /* FavouritesList */,
 			);
 			path = Pat;
 			sourceTree = "<group>";
@@ -115,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				A85A6C5524A463CF00D12350 /* Breed.swift */,
+				A883C1EE24E47D77004BEF6C /* BreedCell.swift */,
 				A85A6C3D24A454E800D12350 /* BreedListViewController.swift */,
 				A8CDA31224D375B200C42DFC /* BreedListInteractor.swift */,
 			);
@@ -271,12 +291,16 @@
 				A89148A924AAC8C600C2BE66 /* ObjectDataSource.swift in Sources */,
 				A8CDA31324D375B200C42DFC /* BreedListInteractor.swift in Sources */,
 				A832180B24D3CABF00E8F10E /* DogsInteractor.swift in Sources */,
+				A897910624E30CBE00D5649C /* Favourites.swift in Sources */,
 				A887FCCD24A53DB3008EE799 /* URL+Endpoints.swift in Sources */,
+				A883C1EF24E47D77004BEF6C /* BreedCell.swift in Sources */,
 				A85A6C5624A463CF00D12350 /* Breed.swift in Sources */,
 				A85A6C3E24A454E800D12350 /* BreedListViewController.swift in Sources */,
+				A81FE63B24D6137F00D40FB8 /* FavouritesListViewController.swift in Sources */,
 				A8B8E3AE24CA38C5008D1842 /* UIImageView+FetchImage.swift in Sources */,
 				A85A6C3A24A454E800D12350 /* AppDelegate.swift in Sources */,
 				A85A6C3C24A454E800D12350 /* SceneDelegate.swift in Sources */,
+				A81FE63D24D614AF00D40FB8 /* FavouriteCell.swift in Sources */,
 				A85A6C5324A45F5A00D12350 /* DataFetcher.swift in Sources */,
 				A849C72C24BA4C91000B3EB6 /* DogCell.swift in Sources */,
 				A898A17524B549A400BE8E2A /* DogsViewController.swift in Sources */,
